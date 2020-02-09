@@ -35,6 +35,7 @@
 		}
 	},
 	"rules": {
+		"prefer-const": 1,
 		"radix": 0,
 		"no-console": 0,
 		"comma-dangle": 0,
