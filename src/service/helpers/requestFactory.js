@@ -1,5 +1,18 @@
 import fetch from 'isomorphic-fetch';
 import { BASIC_API_URL } from '../../config';
+import cookie from 'react-cookies';
+
+const headers = () => {
+	const token = cookie.load('token');
+	if (!!token) {
+		return {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${token}`,
+		};
+	} else {
+		return { 'Content-Type': 'application/json' };
+	}
+};
 
 const requestFactory = async (url, method, data) => {
 	const apiUrl = BASIC_API_URL + url;
@@ -8,7 +21,7 @@ const requestFactory = async (url, method, data) => {
 		const res = await fetch(apiUrl, {
 			method,
 			body: JSON.stringify(data),
-			headers: { 'Content-Type': 'application/json' },
+			headers: headers(),
 		});
 		if (!res.ok) {
 			throw new Error('Error!');

@@ -2,7 +2,7 @@ import React from 'react';
 import LoginPageComponent from './LoginPageComponent';
 import { connect, useDispatch } from 'react-redux';
 import { formValueSelector } from 'redux-form';
-import { loginUser } from '../../../reduxStore/authentication/actions';
+import { loginUser, checkAuth } from '../../../reduxStore/authentication/actions';
 import { string } from 'prop-types';
 
 const propTypes = {
@@ -12,10 +12,12 @@ const propTypes = {
 
 const LoginPageContainer = ({ email, password }) => {
 	const dispatch = useDispatch();
+
 	const onLoginHandler = e => {
 		e.preventDefault();
 		dispatch(loginUser({ email, password }));
 	};
+
 	return <LoginPageComponent onSubmit={onLoginHandler} />;
 };
 

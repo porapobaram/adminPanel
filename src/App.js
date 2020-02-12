@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { func } from 'prop-types';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import LoginPage from './ui/components/LoginPage';
-import RegisterPage from './ui/components/RegisterPage';
+import { setUserData } from './reduxStore/authentication/actions';
+import { connect } from 'react-redux';
+import { PublicRoutes } from './routes/publicRoutes';
+import { ProtectedRoutes } from './routes/ProtectedRoutes';
 
-function App() {
+const propTypes = {
+	setUserData: func,
+};
+
+// eslint-disable-next-line no-shadow
+function App({ setUserData }) {
+	const useSetToken = someFetchActionCreator => {
+		useEffect(() => {
+			someFetchActionCreator();
+		}, []);
+	};
+
+	useSetToken(setUserData);
+
 	return (
 		<Router>
 			<ul style={{ marginBottom: 50 }}>
@@ -11,19 +27,24 @@ function App() {
 					<Link to="/">Home</Link>
 				</li>
 				<li>
-					<Link to="/login">login</Link>
+					<Link to="/auth/login">login</Link>
+				</li>
+				<li>
+					<Link to="/auth/register">register</Link>
 				</li>
 			</ul>
 			<Switch>
-				<Route exact path="/login">
-					<LoginPage />
-				</Route>
-				<Route exact path="/register">
-					<RegisterPage />
-				</Route>
+				<Route path="/auth" component={PublicRoutes} />
+				<Route path="/" component={ProtectedRoutes} />
 			</Switch>
 		</Router>
 	);
 }
 
-export default App;
+App.propTypes = propTypes;
+
+const mapDispatchToProps = {
+	setUserData,
+};
+
+export default connect(null, mapDispatchToProps)(App);
