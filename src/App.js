@@ -15,7 +15,7 @@ function App({ setUserData }) {
 	const useSetToken = someFetchActionCreator => {
 		useEffect(() => {
 			someFetchActionCreator();
-		}, []);
+		}, [someFetchActionCreator]);
 	};
 
 	useSetToken(setUserData);
