@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { func } from 'prop-types';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { setUserData } from './reduxStore/authentication/actions';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { PublicRoutes } from './routes/publicRoutes';
 import { ProtectedRoutes } from './routes/ProtectedRoutes';
 
@@ -11,10 +11,12 @@ const propTypes = {
 };
 
 // eslint-disable-next-line no-shadow
-function App({ setUserData }) {
+function App() {
+	const dispatch = useDispatch();
+
 	const useSetToken = someFetchActionCreator => {
 		useEffect(() => {
-			someFetchActionCreator();
+			dispatch(someFetchActionCreator());
 		}, [someFetchActionCreator]);
 	};
 
@@ -43,8 +45,4 @@ function App({ setUserData }) {
 
 App.propTypes = propTypes;
 
-const mapDispatchToProps = {
-	setUserData,
-};
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;

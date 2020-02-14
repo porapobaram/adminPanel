@@ -11,6 +11,7 @@ const propTypes = {
 const PrivateRoute = ({ children, ...props }) => {
 	const token = cookie.load('token');
 
+	// eslint-disable-next-line react/jsx-props-no-spreading
 	return !!token && token !== 'undefined' ? <Route {...props}>{children}</Route> : <Redirect to="/auth/login" />;
 };
 
