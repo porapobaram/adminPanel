@@ -1,1 +1,3 @@
-export const GET_RANDOM_BAR = "GET_RANDOM_BAR";
+export const GET_ALL_BARS = 'GET_ALL_BARS';
+export const GET_ALL_BARS_ERROR = 'GET_ALL_BARS_ERROR';
+export const GET_ALL_BARS_SUCCESS = 'GET_ALL_BARS_SUCCESS';
