@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 // eslint-disable-next-line import/no-named-as-default-member
 import PrivateRoute from '../ui/components/AuthHOC';
-import BarCrawlPage from '../ui/components/BarCrawlPage'
+import BarCrawlPage from '../ui/components/BarCrawlPage';
 
 const ProtectedRoutes = () => {
 	return (

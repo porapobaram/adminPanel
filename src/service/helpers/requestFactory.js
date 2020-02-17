@@ -6,12 +6,11 @@ const headers = () => {
 	const token = cookie.load('token');
 	if (!!token) {
 		return {
-			'Content-Type': 'application/json',
+			// 'Content-Type': 'application/json',
 			Authorization: `Bearer ${token}`,
 		};
-	} else {
-		return { 'Content-Type': 'application/json' };
 	}
+	return { 'Content-Type': 'application/json' };
 };
 
 const requestFactory = async (url, method, data) => {

@@ -34,6 +34,9 @@ function App() {
 				<li>
 					<Link to="/auth/register">register</Link>
 				</li>
+				<li>
+					<Link to="/adminBarCrawl">Bar Crawl page</Link>
+				</li>
 			</ul>
 			<Switch>
 				<Route path="/auth" component={PublicRoutes} />

@@ -7,11 +7,12 @@ const propTypes = {
 };
 
 const BarCrawlPageComponent = ({ barCrawlFeed }) => {
+	console.log({ barCrawlFeed });
 	return (
 		<div>
-			{barCrawlFeed &&
-				barCrawlFeed.map((barCrawlItem, index) => {
-					return <BarItem key={index} />;
+			{barCrawlFeed.length > 0 &&
+				barCrawlFeed.map(barCrawlItem => {
+					return <BarItem barCrawlItem={barCrawlItem} key={barCrawlItem._id} />;
 				})}
 		</div>
 	);

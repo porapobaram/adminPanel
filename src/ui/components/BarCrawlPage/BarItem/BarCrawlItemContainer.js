@@ -1,15 +1,15 @@
 import React from 'react';
 import { BarCrawlItemComponent } from './BarCrawlItemComponent';
-// import PropTypes from 'prop-types';
-//
-// const propTypes = {
-//
-// };
+import { object } from 'prop-types';
 
-const BarCrawlItemContainer = () => {
-	return <BarCrawlItemComponent />;
+const propTypes = {
+	barCrawlItem: object,
 };
 
-// BarItemContainer.propTypes = propTypes;
+const BarCrawlItemContainer = ({ barCrawlItem }) => {
+	return <BarCrawlItemComponent barCrawlItem={barCrawlItem} />;
+};
+
+BarCrawlItemContainer.propTypes = propTypes;
 
 export { BarCrawlItemContainer };
