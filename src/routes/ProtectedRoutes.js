@@ -3,7 +3,7 @@ import { Switch } from 'react-router-dom';
 // eslint-disable-next-line import/no-named-as-default-member
 import PrivateRoute from '../ui/components/AuthHOC';
 import BarCrawlPage from '../ui/components/BarCrawlPage';
-import Bars from '../ui/components/Bars';
+import BarPage from '../ui/components/BarPage';
 
 const ProtectedRoutes = () => {
 	return (
@@ -15,7 +15,7 @@ const ProtectedRoutes = () => {
 				<BarCrawlPage />
 			</PrivateRoute>
 			<PrivateRoute exact path="/adminBars">
-				<Bars />
+				<BarPage />
 			</PrivateRoute>
 		</Switch>
 	);
