@@ -1,6 +1,10 @@
 import React from 'react';
 import './BarItem.scss';
-// import propTypes from 'prop-types';
+import { object } from 'prop-types';
+
+const propTypes = {
+	barItem: object,
+};
 
 const BarItemComponent = ({ barItem }) => {
 	const { barName, address, barInfo } = barItem;
@@ -12,13 +16,13 @@ const BarItemComponent = ({ barItem }) => {
 			<h2>{barName}</h2>
 			<p>{address}</p>
 			<p>{barInfo}</p>
-			<button onClick={onClickHandler}>test</button>
+			<button onClick={onClickHandler} type="button">
+				test
+			</button>
 		</div>
 	);
 };
 
-// BarsItemComponent.propTypes = {
-//
-// }
+BarItemComponent.propTypes = propTypes;
 
 export { BarItemComponent };
