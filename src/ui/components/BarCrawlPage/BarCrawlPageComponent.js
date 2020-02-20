@@ -1,5 +1,5 @@
 import React from 'react';
-import BarItem from './BarItem';
+import BarCrawlItem from './BarCrawlItem';
 import { array } from 'prop-types';
 
 const propTypes = {
@@ -12,7 +12,7 @@ const BarCrawlPageComponent = ({ barCrawlFeed }) => {
 		<div>
 			{barCrawlFeed.length > 0 &&
 				barCrawlFeed.map(barCrawlItem => {
-					return <BarItem barCrawlItem={barCrawlItem} key={barCrawlItem._id} />;
+					return <BarCrawlItem barCrawlItem={barCrawlItem} key={barCrawlItem._id} />;
 				})}
 		</div>
 	);
