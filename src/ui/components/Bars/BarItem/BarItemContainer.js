@@ -6,8 +6,9 @@ import { BarItemComponent } from './BarItemComponent';
 
 // };
 
+// eslint-disable-next-line react/prop-types
 const BarItemContainer = ({ barItem }) => {
-    return <BarItemComponent barItem={barItem} />;
+	return <BarItemComponent barItem={barItem} />;
 };
 
 // BarItemContainer.propTypes = propTypes;
